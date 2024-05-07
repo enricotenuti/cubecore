@@ -34,7 +34,7 @@ ctest: cleanctest cube.o
 	${CC} ${CFLAGS} -o ctest ctest.c cube.o
 
 cpptest: cleancpptest cube.o
-	${++}  -o cpptest cpptest.cpp cube.o
+	${++}  -o cpptest ctest.cpp cube.o
 
 cleanctest:
 	rm -rf ctest
