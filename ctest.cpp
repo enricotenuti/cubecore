@@ -135,7 +135,7 @@ sol_t twoPhase(cube_t c){
 int main(void) {
     cube_t solved = cube_new();
     cube_t cube = cube_new();
-    vector<move_t> moves = {U, R, L, F };
+    vector<move_t> moves = {U, R, L, F};
     printf("\n");
     cube = apply_alg(cube, &moves);
 
