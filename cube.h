@@ -1,3 +1,6 @@
+#include <stdbool.h>
+#include <stdint.h>
+
 typedef enum {
 	U, U2, U3, D, D2, D3,
 	R, R2, R3, L, L2, L3,
