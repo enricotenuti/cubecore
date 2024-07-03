@@ -1,7 +1,6 @@
-cube.o
-example/a.out
-example/example.o
+*.out
 experiments
-cube.o
+*.o
+*.txt
 notes
 .vscode

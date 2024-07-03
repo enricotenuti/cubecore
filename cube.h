@@ -1,5 +1,10 @@
+#ifndef CUBE_H
+#define CUBE_H
 #include <stdbool.h>
 #include <stdint.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef enum {
 	U, U2, U3, D, D2, D3,
@@ -45,3 +50,10 @@ trans_t cube_readtrans(const char *);
 char *cube_transstr(trans_t);
 move_t cube_inversemove(move_t);
 trans_t cube_inversetrans(trans_t);
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // CUBE_H
