@@ -13,8 +13,17 @@ cleancube:
 cube.o:
 	${CC} ${CFLAGS} -c -o cube.o cube.c
 
+primitives.o: cube.o cleanprimitives
+	${++} -c -o primitives.o primitives.cpp
+
+twophase.o: primitives.o
+	${++} -c -o twophase.o twophase.cpp
+
 cleandebug:
 	rm -rf debugcube.o
+
+cleanprimitives:
+	rm -rf primitives.o
 
 debugcube.o:
 	${CC} ${DBGFLAGS} -c -o debugcube.o cube.c
@@ -33,8 +42,8 @@ benchmark: cube.o
 ctest: cleanctest cube.o
 	${CC} ${CFLAGS} -o ctest ctest.c cube.o
 
-cpptest: cleancpptest cube.o
-	${++}  -o cpptest ctest.cpp cube.o
+cpptest: cleancpptest cube.o primitives.o twophase.o
+	${++}  -o cpptest ctest.cpp cube.o primitives.o twophase.o
 
 cleanctest:
 	rm -rf ctest

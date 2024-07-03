@@ -1,3 +1,4 @@
-cube.o
+*.o
+*.txt
 notes
 .vscode
