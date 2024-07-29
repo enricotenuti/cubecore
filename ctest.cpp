@@ -2,10 +2,13 @@
 #include <vector>
 #include <stdint.h>
 #include <string.h>
+#include <time.h>
 #include "primitives.h"
 
-
 int main(void) {
+    // Inizio del timer
+    clock_t start_time = clock();
+    
     cube_t solved = cube_new();
     cube_t cube = cube_new();
     string filename = "scramble.txt";
@@ -13,9 +16,9 @@ int main(void) {
     printf("scramble: ");
     print_solution_singmaster(scramble);
     cube = apply_alg(cube, &scramble);
-    char buf[500];
-    cube_write("LST", cube, buf);
-    printf("%s\n", buf);
+    // char buf[500];
+    // cube_write("LST", cube, buf);
+    // printf("%s\n", buf);
 
     // printf("oriented: %s\n", coud(cube) ? "true" : "false");
     // cube_t trans = cube_transform(cube, RUr);
@@ -31,5 +34,11 @@ int main(void) {
     //     printf("\n");
     // }
     twoPhase(cube);
+
+    // Fine del timer e calcolo del tempo trascorso
+    clock_t end_time = clock();
+    double time_spent = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Tempo impiegato: %.2f secondi\n", time_spent);
+
     return 0;
 }

@@ -10,7 +10,12 @@
 using namespace std;
 
 const sol_t moves = { U, U2, U3, D, D2, D3, R, R2, R3, L, L2, L3, F, F2, F3, B, B2, B3 };
-const sol_t drmoves = { U, U2, U3, D, D2, D3, R2, L2, F2, B2 };
+const move_t drmoves[3][10] = {
+    {U, U2, U3, D, D2, D3, R2, L2, F2, B2},
+    {R, R2, R3, L, L2, L3, U2, D2, F2, B2},
+    {F, F2, F3, B, B2, B3, U2, D2, R2, L2}
+};
+
   unordered_map<string, move_t> singmaster_map = {
     {"U", U}, {"U2", U2}, {"U'", U3},
     {"D", D}, {"D2", D2}, {"D'", D3},
@@ -142,7 +147,7 @@ sol_t read_scramble_from_file(const string& filename) {
     return scramble;
 }
 
-bool isRedundantMove(move_t n, move_t l, move_t s) {
+bool notRedundantMove(move_t n, move_t l, move_t s) {
     if (l / 3 == n / 3) {
         return false;
     }

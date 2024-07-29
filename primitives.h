@@ -21,7 +21,7 @@ typedef vector<move_t> sol_t;
 
 extern unordered_map<string, move_t> singmaster_map;
 extern const sol_t moves;
-extern const sol_t drmoves;
+extern const move_t drmoves[3][10];
 
 
 cube_t apply_alg(cube_t cube, vector<move_t> *moves);
@@ -44,11 +44,11 @@ int drrl(const cube_t c);
 int drfb(const cube_t c);
 int dr(const cube_t c);
 
-bool isRedundantMove(move_t new_move, move_t last_move, move_t second_last_move);
+bool notRedundantMove(move_t new_move, move_t last_move, move_t second_last_move);
 sol_t read_scramble_from_file(const string& filename);
 
-int phase2search(cube_t c, int d2, sol_t s, move_t last, move_t second_last, int td, int tdm);
-int phase1search(cube_t c, int d1, int d2, sol_t s, move_t last, move_t second_last, int td, int tdm);
+int phase2search(cube_t c, int d2, sol_t s, move_t last, move_t second_last, int td, int tdm, int ptdm);
+int phase1search(cube_t c, int d1, int d2, sol_t s, move_t last, move_t second_last, int td, int tdm, int ptdm);
 sol_t twoPhase(cube_t c);
 
 #endif
